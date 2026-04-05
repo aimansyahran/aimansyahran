@@ -7,8 +7,16 @@ const categories = ['All', ...new Set(portfolioData.projects.map(p => p.category
 const WorkGrid = ({ onProjectOpen }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
   const [sectionVisible, setSectionVisible] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,8 +36,9 @@ const WorkGrid = ({ onProjectOpen }) => {
     ? portfolioData.projects
     : portfolioData.projects.filter(p => p.category === activeCategory);
 
-  const hasMore = filteredProjects.length > 4;
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
+  const limit = isMobile ? 4 : 6;
+  const hasMore = filteredProjects.length > limit;
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, limit);
 
   const handleCategoryChange = (cat) => {
     setActiveCategory(cat);
@@ -113,9 +122,9 @@ const WorkGrid = ({ onProjectOpen }) => {
           ))}
         </div>
 
-        {/* Load more — visible on mobile/tablet only */}
+        {/* Load more */}
         {hasMore && !showAll && (
-          <div className="flex justify-center mt-12 md:hidden">
+          <div className="flex justify-center mt-12">
             <button
               onClick={() => setShowAll(true)}
               className="px-8 py-3 text-xs uppercase tracking-[0.15em] border border-dark-700 text-dark-400 hover:border-accent hover:text-accent transition-all duration-300 focus:outline-none"
