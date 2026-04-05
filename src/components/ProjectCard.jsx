@@ -60,24 +60,13 @@ const ProjectCard = ({ project, index, onOpen }) => {
       role="button"
       aria-label={`View project: ${project.title}`}
     >
-      {/* Number → Logo swap on hover */}
+      {/* Number badge — top of card */}
       <span
-        className="absolute -top-4 left-4 z-10 text-[4rem] md:text-[6rem] leading-none font-display text-dark-800/80 group-hover:opacity-0 transition-all duration-500 pointer-events-none select-none hidden md:block"
+        className="absolute -top-4 left-4 z-10 text-[4rem] md:text-[6rem] leading-none font-display text-dark-800/80 group-hover:text-accent/30 transition-colors duration-500 pointer-events-none select-none hidden md:block"
         aria-hidden="true"
       >
         {String(index + 1).padStart(2, '0')}
       </span>
-      {hasLogo && (
-        <div className="absolute -top-4 left-4 z-10 w-20 h-12 md:w-24 md:h-14 opacity-0 group-hover:opacity-100 transition-all duration-500 select-none pointer-events-none hidden md:flex items-center justify-center">
-          <img
-            src={project.logo}
-            alt=""
-            className="max-w-full max-h-full object-contain"
-            style={{ filter: 'brightness(0) invert(1)' }}
-            onError={() => setLogoError(true)}
-          />
-        </div>
-      )}
 
       <div className="relative aspect-[4/3] md:aspect-[5/3] overflow-hidden bg-dark-900 ring-1 ring-dark-800/30 group-hover:ring-accent/20 transition-all duration-500 mt-4 md:mt-0">
         {/* Gradient background — always visible */}
@@ -85,6 +74,25 @@ const ProjectCard = ({ project, index, onOpen }) => {
           className="absolute inset-0 transition-opacity duration-700"
           style={{ background: gradient }}
         />
+
+        {/* Logo mark — centered on the card */}
+        <div className="absolute inset-0 flex items-center justify-center z-[2]">
+          {hasLogo ? (
+            <div className={`${project.logoWidth || 'w-[60%]'} h-20 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:opacity-80`}>
+              <img
+                src={project.logo}
+                alt={project.title}
+                className="max-w-full max-h-full object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+                onError={() => setLogoError(true)}
+              />
+            </div>
+          ) : (
+            <div className={`px-4 py-2 border border-white/20 backdrop-blur-sm ${logoText.length > 5 ? 'text-lg' : logoText.length > 3 ? 'text-xl' : 'text-2xl'} font-medium text-white/90 tracking-wider transition-all duration-500 group-hover:border-accent/40 group-hover:text-accent/90 group-hover:scale-105`}>
+              {logoText}
+            </div>
+          )}
+        </div>
 
         {/* Hover overlay with slide-up reveal */}
         <div
