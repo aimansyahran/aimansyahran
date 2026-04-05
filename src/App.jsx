@@ -29,6 +29,7 @@ function App() {
         <About />
         <Capabilities />
         <Skills />
+        <div className="h-px mx-6 md:mx-12 bg-gradient-to-r from-transparent via-dark-600/30 to-transparent" aria-hidden="true" />
         <WorkGrid onProjectOpen={handleProjectOpen} />
       </main>
       <Footer />
