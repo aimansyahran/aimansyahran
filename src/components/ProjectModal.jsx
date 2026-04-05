@@ -187,22 +187,17 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                       }}
                     />
                   ) : (
-                    <>
-                      <img
-                        src={item.src}
-                        alt={`${project.title} — Image ${i + 1}`}
-                        className="w-full h-full object-cover"
-                        style={{
-                          animation: 'modal-img-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
-                          opacity: 0.6,
-                        }}
-                        loading={i === 0 ? 'eager' : 'lazy'}
-                        decoding="async"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-dark-950/40 via-transparent to-dark-950/20" />
-                    </>
+                    <img
+                      src={item.src}
+                      alt={`${project.title} — Image ${i + 1}`}
+                      className="w-full h-full object-cover"
+                      style={{
+                        animation: 'modal-img-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+                      }}
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
                   )}
-                  <div className="absolute inset-0 ring-1 ring-white/5 pointer-events-none" />
                 </div>
               ))}
             </div>
