@@ -70,7 +70,7 @@ const ProjectCard = ({ project, index, onOpen }) => {
         {String(index + 1).padStart(2, '0')}
       </span>
 
-      <div className="relative aspect-[4/3] overflow-hidden bg-dark-900 ring-1 ring-dark-800/30 group-hover:ring-accent/20 transition-all duration-500 mt-4 md:mt-0">
+      <div className="relative aspect-[4/3] md:aspect-[5/3] overflow-hidden bg-dark-900 ring-1 ring-dark-800/30 group-hover:ring-accent/20 transition-all duration-500 mt-4 md:mt-0">
         {/* Gradient background — always visible */}
         <div
           className="absolute inset-0 transition-opacity duration-700"
@@ -80,13 +80,15 @@ const ProjectCard = ({ project, index, onOpen }) => {
         {/* Logo mark — centered on the card */}
         <div className="absolute inset-0 flex items-center justify-center z-[2]">
           {hasLogo ? (
-            <img
-              src={project.logo}
-              alt={project.title}
-              className="w-[45%] h-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:opacity-80"
-              style={{ filter: 'brightness(0) invert(1)' }}
-              onError={() => setLogoError(true)}
-            />
+            <div className={`${project.logoWidth || 'w-[60%]'} h-20 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:opacity-80`}>
+              <img
+                src={project.logo}
+                alt={project.title}
+                className="max-w-full max-h-full object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+                onError={() => setLogoError(true)}
+              />
+            </div>
           ) : (
             <div
               className={`px-4 py-2 border border-white/20 backdrop-blur-sm ${logoSize} font-medium text-white/90 tracking-wider transition-all duration-500 group-hover:border-accent/40 group-hover:text-accent/90 group-hover:scale-105`}

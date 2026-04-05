@@ -102,7 +102,7 @@ const WorkGrid = ({ onProjectOpen }) => {
         </div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {displayedProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
