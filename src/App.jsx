@@ -9,6 +9,8 @@ import WorkGrid from './components/WorkGrid';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
 
+import { portfolioData } from './data/portfolio';
+
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -35,7 +37,11 @@ function App() {
       <Footer />
 
       {selectedProject && (
-        <ProjectModal project={selectedProject} onClose={handleCloseModal} />
+        <ProjectModal
+          project={selectedProject}
+          allProjects={portfolioData.projects}
+          onClose={handleCloseModal}
+        />
       )}
     </>
   );

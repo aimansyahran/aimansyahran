@@ -183,7 +183,7 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                       className="w-full h-full"
                       style={{
                         background: item.gradient,
-                        animation: 'modal-img-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+                        animation: `fade-in 0.6s ease-out both`,
                       }}
                     />
                   ) : (
@@ -192,7 +192,7 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                       alt={`${project.title} — Image ${i + 1}`}
                       className="w-full h-full object-cover"
                       style={{
-                        animation: 'modal-img-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+                        animation: `fade-in 0.6s ease-out ${i * 0.15}s both`,
                       }}
                       loading={i === 0 ? 'eager' : 'lazy'}
                       decoding="async"
