@@ -83,7 +83,8 @@ const ProjectCard = ({ project, index, onOpen }) => {
             <img
               src={project.logo}
               alt={project.title}
-              className="w-[45%] h-auto object-contain transition-all duration-500 group-hover:scale-105"
+              className="w-[45%] h-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:opacity-80"
+              style={{ filter: 'brightness(0) invert(1)' }}
               onError={() => setLogoError(true)}
             />
           ) : (
