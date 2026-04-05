@@ -28,8 +28,8 @@ const WorkGrid = ({ onProjectOpen }) => {
     ? portfolioData.projects
     : portfolioData.projects.filter(p => p.category === activeCategory);
 
-  const hasMore = filteredProjects.length > 9;
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 9);
+  const hasMore = filteredProjects.length > 4;
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   const handleCategoryChange = (cat) => {
     setActiveCategory(cat);
