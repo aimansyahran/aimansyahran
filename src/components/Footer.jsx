@@ -84,16 +84,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-dark-500 mb-4">
-                Follow
-              </p>
-              <div className="flex gap-3">
-                <SocialLink platform="linkedin" url={portfolioData.designer.social.linkedin} />
-                <SocialLink platform="behance" url={portfolioData.designer.social.behance} />
-                <SocialLink platform="instagram" url={portfolioData.designer.social.instagram} />
-              </div>
-            </div>
+            {/* Social — hidden for now, bring back later */}
           </div>
 
           {/* Navigation */}

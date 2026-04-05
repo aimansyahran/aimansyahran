@@ -6,6 +6,7 @@ const categories = ['All', ...new Set(portfolioData.projects.map(p => p.category
 
 const WorkGrid = ({ onProjectOpen }) => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [mobileLimit, setMobileLimit] = useState(4);
   const sectionRef = useRef(null);
   const [sectionVisible, setSectionVisible] = useState(false);
 
@@ -26,6 +27,9 @@ const WorkGrid = ({ onProjectOpen }) => {
   const filteredProjects = activeCategory === 'All'
     ? portfolioData.projects
     : portfolioData.projects.filter(p => p.category === activeCategory);
+
+  const displayedProjects = filteredProjects.slice(0, mobileLimit);
+  const hasMore = filteredProjects.length > mobileLimit;
 
   const handleCategoryChange = (cat) => {
     setActiveCategory(cat);
@@ -99,7 +103,7 @@ const WorkGrid = ({ onProjectOpen }) => {
 
         {/* Project grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-          {filteredProjects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -108,6 +112,18 @@ const WorkGrid = ({ onProjectOpen }) => {
             />
           ))}
         </div>
+
+        {/* Load more — visible on mobile only */}
+        {hasMore && (
+          <div className="flex justify-center mt-12 md:hidden">
+            <button
+              onClick={() => setMobileLimit(prev => prev + 3)}
+              className="px-8 py-3 text-xs uppercase tracking-[0.15em] border border-dark-700 text-dark-400 hover:border-accent hover:text-accent transition-all duration-300 focus:outline-none"
+            >
+              Load More ({filteredProjects.length - mobileLimit} remaining)
+            </button>
+          </div>
+        )}
 
       </div>
     </section>
