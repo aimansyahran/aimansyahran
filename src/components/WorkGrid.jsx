@@ -6,9 +6,8 @@ const categories = ['All', ...new Set(portfolioData.projects.map(p => p.category
 
 const WorkGrid = ({ onProjectOpen }) => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const defaultLimit = isMobile ? 4 : 6;
-  const [visibleCount, setVisibleCount] = useState(defaultLimit);
   const [isMobile, setIsMobile] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(6);
   const sectionRef = useRef(null);
   const [sectionVisible, setSectionVisible] = useState(false);
 
