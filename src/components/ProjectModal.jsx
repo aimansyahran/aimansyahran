@@ -148,12 +148,6 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
 
           <div className="flex items-center gap-3">
             <button
-              onClick={handleContactClick}
-              className="hidden md:block px-5 py-2.5 bg-white text-dark-950 font-medium uppercase tracking-wider text-[10px] hover:bg-accent hover:text-dark-950 transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
-            >
-              Start a Project
-            </button>
-            <button
               ref={closeButtonRef}
               onClick={handleClose}
               className="w-10 h-10 flex items-center justify-center border border-dark-700 hover:border-white transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
@@ -336,15 +330,6 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </button>
-              </div>
-
-              <div className="md:hidden pt-4">
-                <button
-                  onClick={handleContactClick}
-                  className="w-full px-8 py-4 bg-white text-dark-950 font-medium uppercase tracking-wider text-xs hover:bg-accent transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent"
-                >
-                  Start a Project
                 </button>
               </div>
             </div>

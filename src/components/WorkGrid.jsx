@@ -6,7 +6,8 @@ const categories = ['All', ...new Set(portfolioData.projects.map(p => p.category
 
 const WorkGrid = ({ onProjectOpen }) => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [showAll, setShowAll] = useState(false);
+  const defaultLimit = isMobile ? 4 : 6;
+  const [visibleCount, setVisibleCount] = useState(defaultLimit);
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
   const [sectionVisible, setSectionVisible] = useState(false);
@@ -17,6 +18,10 @@ const WorkGrid = ({ onProjectOpen }) => {
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
+
+  useEffect(() => {
+    setVisibleCount(isMobile ? 4 : 6);
+  }, [isMobile]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,9 +41,8 @@ const WorkGrid = ({ onProjectOpen }) => {
     ? portfolioData.projects
     : portfolioData.projects.filter(p => p.category === activeCategory);
 
-  const limit = isMobile ? 4 : 6;
-  const hasMore = filteredProjects.length > limit;
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, limit);
+  const hasMore = filteredProjects.length > visibleCount;
+  const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   const handleCategoryChange = (cat) => {
     setActiveCategory(cat);
@@ -123,13 +127,13 @@ const WorkGrid = ({ onProjectOpen }) => {
         </div>
 
         {/* Load more */}
-        {hasMore && !showAll && (
+        {hasMore && (
           <div className="flex justify-center mt-12">
             <button
-              onClick={() => setShowAll(true)}
+              onClick={() => setVisibleCount(prev => prev + 3)}
               className="px-8 py-3 text-xs uppercase tracking-[0.15em] border border-dark-700 text-dark-400 hover:border-accent hover:text-accent transition-all duration-300 focus:outline-none"
             >
-              Show All Projects
+              Show More ({Math.min(3, filteredProjects.length - visibleCount)} more)
             </button>
           </div>
         )}
