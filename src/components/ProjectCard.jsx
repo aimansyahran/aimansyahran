@@ -34,8 +34,10 @@ const logos = {
 
 const ProjectCard = ({ project, index, onOpen }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const gradient = gradients[index % gradients.length];
   const logoText = logos[project.id] || project.title.substring(0, 2).toUpperCase();
+  const hasLogo = project.logo && !logoError;
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -77,11 +79,20 @@ const ProjectCard = ({ project, index, onOpen }) => {
 
         {/* Logo mark — centered on the card */}
         <div className="absolute inset-0 flex items-center justify-center z-[2]">
-          <div
-            className={`px-4 py-2 border border-white/20 backdrop-blur-sm ${logoSize} font-medium text-white/90 tracking-wider transition-all duration-500 group-hover:border-accent/40 group-hover:text-accent/90 group-hover:scale-105`}
-          >
-            {logoText}
-          </div>
+          {hasLogo ? (
+            <img
+              src={project.logo}
+              alt={project.title}
+              className="w-[45%] h-auto object-contain transition-all duration-500 group-hover:scale-105"
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <div
+              className={`px-4 py-2 border border-white/20 backdrop-blur-sm ${logoSize} font-medium text-white/90 tracking-wider transition-all duration-500 group-hover:border-accent/40 group-hover:text-accent/90 group-hover:scale-105`}
+            >
+              {logoText}
+            </div>
+          )}
         </div>
 
         {/* Hover overlay with slide-up reveal */}

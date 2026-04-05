@@ -91,6 +91,7 @@ export const portfolioData = {
     {
       id: 1,
       title: "King Salman Gate",
+      logo: "/logo-ksg.png",
       category: "Destination Branding",
       year: "2024",
       description: "Brand identity and visual communications for one of Saudi Arabia's most ambitious megaprojects—developing a distinctive brand language that connects heritage with the future.",
@@ -105,6 +106,7 @@ export const portfolioData = {
     {
       id: 2,
       title: "Diriyah Gate Development Authority",
+      logo: "/logo-dirda.png",
       category: "Cultural Branding",
       year: "2024",
       description: "Visual identity and creative direction for the giga-project transforming the birthplace of Saudi Arabia into a world-class cultural and heritage destination.",
@@ -119,6 +121,7 @@ export const portfolioData = {
     {
       id: 3,
       title: "NEOM",
+      logo: "/logo-neom.png",
       category: "Megaproject Branding",
       year: "2023",
       description: "Design work for the future-forward megacity—crafting visual narratives that communicate ambition, innovation, and a new way of living.",
@@ -133,6 +136,7 @@ export const portfolioData = {
     {
       id: 4,
       title: "King Abdullah Finance District",
+      logo: "/logo-kafd.png",
       category: "Corporate Branding",
       year: "2023",
       description: "Visual communications and brand collateral for Riyadh's premier financial district—positioning it as a hub for enterprise and investment.",
