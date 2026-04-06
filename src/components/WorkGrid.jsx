@@ -51,6 +51,7 @@ const WorkGrid = ({ onProjectOpen }) => {
     <section
       ref={sectionRef}
       className="py-24 md:py-32 px-6 md:px-12 relative"
+      id="work"
       aria-label="Selected Work"
     >
       <div className="max-w-[1600px] mx-auto">
