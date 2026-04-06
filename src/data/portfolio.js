@@ -302,11 +302,11 @@ export const portfolioData = {
       categories: [
         {
           name: "Adobe Creative Suite",
-          tools: ["Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Lightroom"]
+          tools: ["Photoshop", "Illustrator", "InDesign", "After Effects", "Premiere Pro", "Lightroom", "XD"]
         },
         {
           name: "Design & Prototyping",
-          tools: ["Figma", "Sketch"]
+          tools: ["Figma", "Sketch", "Xcode"]
         },
         {
           name: "3D & Rendering",
