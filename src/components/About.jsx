@@ -27,11 +27,11 @@ const About = () => {
               changed = true;
             }
             if (elapsed < 1000) {
-              next.svc = Math.round((1 - Math.pow(1 - elapsed / 1000, 3)) * serviceCount);
+              next.svc = Math.round((1 - Math.pow(1 - elapsed / 1000, 3)) * 12);
               changed = true;
             }
             if (elapsed < 1200) {
-              next.proj = Math.round((1 - Math.pow(1 - elapsed / 1200, 3)) * projectCount);
+              next.proj = Math.round((1 - Math.pow(1 - elapsed / 1200, 3)) * 13);
               changed = true;
             }
             if (changed) setCounters((prev) => ({ ...prev, ...next }));
@@ -141,7 +141,7 @@ const About = () => {
                 key={stat.label}
                 className="bg-dark-900 p-8 flex flex-col items-center justify-center text-center"
               >
-                <span className="font-display text-3xl text-white">{stat.value}</span>
+                <span className="font-display text-5xl text-white">{stat.value}</span>
                 <span className="text-xs text-dark-500 mt-2 uppercase tracking-wider">{stat.label}</span>
               </div>
             ))}
