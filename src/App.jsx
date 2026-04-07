@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { LanguageProvider } from './i18n/LanguageProvider';
 import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
 import Hero from './components/Hero';
@@ -11,7 +12,7 @@ import ProjectModal from './components/ProjectModal';
 
 import { portfolioData } from './data/portfolio';
 
-function App() {
+function AppContent() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const handleProjectOpen = (project) => {
@@ -44,6 +45,14 @@ function App() {
         />
       )}
     </>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
 

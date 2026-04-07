@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from '../i18n/LanguageProvider';
 import { portfolioData } from '../data/portfolio';
 
 const About = () => {
+  const { t, lang } = useTranslation();
   const projectCount = portfolioData.projects.length;
   const serviceCount = portfolioData.services.length;
 
@@ -48,9 +50,11 @@ const About = () => {
     return () => observer.disconnect();
   }, [projectCount, serviceCount]);
 
-  const sentences = portfolioData.about.split('. ');
-  const pullQuote = sentences[0];
-  const bodySentences = sentences.slice(1);
+  const aboutSentences = lang === 'ar'
+    ? ['مصمم جرافيك أول يقود مشاريع عالية التأثير واسعة النطاق، أنجز أعمالاً للجهات الحكومية الكبرى والمشاريع الضخمة والعلامات الراقية مثل بوابة الدرعية وبوابة الملك سلمان وموسم الرياض', 'أدمج التوجيه الإبداعي والتصميم ثلاثي الأبعاد والذكاء الاصطناعي لتقديم تصاميم مبتكرة ومستقبلية ترفع قيمة العلامات التجارية وتحقق النتائج']
+    : portfolioData.about.split('. ');
+  const pullQuote = aboutSentences[0];
+  const bodySentences = aboutSentences.slice(1);
 
   return (
     <>
@@ -73,11 +77,11 @@ const About = () => {
               <div className="flex items-center gap-3 mb-6">
                 <span className="h-px w-8 bg-accent/40 inline-block" />
                 <p className="text-sm uppercase tracking-[0.2em] text-accent">
-                  About
+                  {t('about.label')}
                 </p>
               </div>
               <h2 className="font-display text-4xl md:text-5xl font-medium leading-tight">
-                The Designer
+                {t('about.title')}
               </h2>
               <div className="mt-4 mb-6 w-16 h-px bg-accent/20" />
               <p className="text-xs text-dark-500 uppercase tracking-wider">
@@ -92,7 +96,7 @@ const About = () => {
                   <path d="M7 1.5V9M7 9L3 5.5M7 9L11 5.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M1.5 10.5V12C1.5 12.2761 1.72386 12.5 2 12.5H12C12.2761 12.5 12.5 12.2761 12.5 12V10.5" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span>Download Resume</span>
+                <span>{t('about.downloadResume')}</span>
               </a>
             </div>
 
@@ -105,10 +109,10 @@ const About = () => {
               }}
             >
               <div className="relative">
-                <blockquote className="font-display text-2xl md:text-3xl text-dark-200 leading-snug pl-6 border-l-2 border-accent/40">
+                <blockquote className={`font-display text-2xl md:text-3xl text-dark-200 leading-snug ${lang === 'ar' ? 'pr-6 border-r-2 border-accent/40' : 'pl-6 border-l-2 border-accent/40'}`}>
                   {pullQuote}.
                 </blockquote>
-                <span className="absolute -top-4 left-5 font-display text-6xl text-accent/10 leading-none" aria-hidden="true">
+                <span className={`absolute -top-4 ${lang === 'ar' ? 'right-5' : 'left-5'} font-display text-6xl text-accent/10 leading-none`} aria-hidden="true">
                   &ldquo;
                 </span>
               </div>
@@ -132,10 +136,10 @@ const About = () => {
             }}
           >
             {[
-              { value: `${counters.exp}+`, label: 'Years of Experience' },
-              { value: `${counters.svc}+`, label: 'Services Offered' },
-              { value: counters.proj, label: 'Featured Projects' },
-              { value: '50+', label: 'Brands Elevated' },
+              { value: `${counters.exp}+`, label: t('about.stats.yearsOfExperience') },
+              { value: `${counters.svc}+`, label: t('about.stats.servicesOffered') },
+              { value: counters.proj, label: t('about.stats.featuredProjects') },
+              { value: '50+', label: t('about.stats.brandsElevated') },
             ].map((stat) => (
               <div
                 key={stat.label}

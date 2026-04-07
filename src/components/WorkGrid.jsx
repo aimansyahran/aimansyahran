@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from '../i18n/LanguageProvider';
 import { portfolioData } from '../data/portfolio';
 import ProjectCard from './ProjectCard';
 
-const categories = ['All', ...new Set(portfolioData.projects.map(p => p.category))];
+const rawCategories = ['All', ...new Set(portfolioData.projects.map(p => p.category))];
 
 const WorkGrid = ({ onProjectOpen }) => {
+  const { t, lang } = useTranslation();
   const [activeCategory, setActiveCategory] = useState('All');
   const [isMobile, setIsMobile] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
@@ -43,6 +45,23 @@ const WorkGrid = ({ onProjectOpen }) => {
   const hasMore = filteredProjects.length > visibleCount;
   const displayedProjects = filteredProjects.slice(0, visibleCount);
 
+  const CATEGORY_KEY_MAP = {
+    'All': 'work.all',
+    'Destination Branding': 'category.destinationBranding',
+    'Cultural Branding': 'category.culturalBranding',
+    'Megaproject Branding': 'category.megaprojectBranding',
+    'Corporate Branding': 'category.corporateBranding',
+    'Government Initiative': 'category.governmentInitiative',
+    'Events Branding': 'category.eventsBranding',
+    'Brand Identity': 'category.brandIdentity',
+    'Brand Communication': 'category.brandCommunication',
+  };
+
+  const translatedCategories = rawCategories.map(cat => ({
+    raw: cat,
+    label: cat === 'All' ? (lang === 'en' ? 'All' : 'الكل') : t(CATEGORY_KEY_MAP[cat] || 'category.' + cat),
+  }));
+
   const handleCategoryChange = (cat) => {
     setActiveCategory(cat);
   };
@@ -67,13 +86,12 @@ const WorkGrid = ({ onProjectOpen }) => {
             <div className="flex items-center gap-3 mb-6">
               <span className="h-px w-8 bg-accent/40 inline-block" />
               <p className="text-sm uppercase tracking-[0.2em] text-accent">
-                Selected Work
+                {t('work.label')}
               </p>
             </div>
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-tight">
-              Featured
+              {lang === 'en' ? 'Featured\nProjects' : 'مشاريع\nمميزة'}
               <br />
-              <span className="italic text-dark-400">Projects</span>
             </h2>
           </div>
 
@@ -86,17 +104,17 @@ const WorkGrid = ({ onProjectOpen }) => {
               transition: 'all 0.7s ease-out 0.2s',
             }}
           >
-            {categories.map((cat) => (
+            {translatedCategories.map((cat) => (
               <button
-                key={cat}
-                onClick={() => handleCategoryChange(cat)}
+                key={cat.raw}
+                onClick={() => handleCategoryChange(cat.raw)}
                 className={`px-5 py-2.5 text-xs uppercase tracking-[0.15em] border transition-all duration-400 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                  activeCategory === cat
+                  activeCategory === cat.raw
                     ? 'bg-accent text-dark-950 border-accent'
                     : 'border-dark-700 text-dark-400 hover:border-dark-500 hover:text-dark-200'
                 }`}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>
@@ -111,7 +129,7 @@ const WorkGrid = ({ onProjectOpen }) => {
           }}
         >
           <span className="text-accent text-lg">{filteredProjects.length}</span>
-          <span>/ {portfolioData.projects.length} projects</span>
+          <span>/ {portfolioData.projects.length} {lang === 'en' ? 'projects' : 'مشروع'}</span>
         </div>
 
         {/* Project grid */}
@@ -133,7 +151,9 @@ const WorkGrid = ({ onProjectOpen }) => {
               onClick={() => setVisibleCount(prev => prev + 3)}
               className="px-8 py-3 text-xs uppercase tracking-[0.15em] border border-dark-700 text-dark-400 hover:border-accent hover:text-accent transition-all duration-300 focus:outline-none"
             >
-              Show More ({Math.min(3, filteredProjects.length - visibleCount)} more)
+              {lang === 'en'
+                ? `Show More (${Math.min(3, filteredProjects.length - visibleCount)} more)`
+                : `عرض المزيد (${Math.min(3, filteredProjects.length - visibleCount)} متبقي)`}
             </button>
           </div>
         )}

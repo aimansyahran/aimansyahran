@@ -1,3 +1,4 @@
+import { useTranslation } from '../i18n/LanguageProvider';
 import { portfolioData } from '../data/portfolio';
 
 const SocialIcons = {
@@ -35,6 +36,7 @@ function SocialLink({ platform, url }) {
 }
 
 const Footer = () => {
+  const { t, lang } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -46,17 +48,17 @@ const Footer = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
             <div>
               <h2 className="font-display text-4xl md:text-5xl font-medium mb-4">
-                Let&rsquo;s Work Together
+                {t('footer.workTogetherTitle')}
               </h2>
               <p className="text-dark-400 max-w-lg">
-                Available for freelance projects, brand collaborations, and design partnerships that push creative boundaries.
+                {t('footer.workTogetherDesc')}
               </p>
             </div>
             <a
               href={`mailto:${portfolioData.designer.email}`}
               className="shrink-0 px-8 py-4 bg-accent text-dark-950 font-semibold uppercase tracking-[0.15em] text-[11px] hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 hover:-translate-y-0.5"
             >
-              Get in Touch
+              {t('footer.workTogetherButton')}
             </a>
           </div>
         </div>
@@ -66,7 +68,7 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-8">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-dark-500 mb-6">
-                Contact
+                {t('footer.contact')}
               </p>
               <div className="space-y-4">
                 <a
@@ -90,16 +92,21 @@ const Footer = () => {
           {/* Navigation */}
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-dark-500 mb-6">
-              Navigation
+              {t('footer.navigation')}
             </p>
             <div className="space-y-3">
-              {['Work', 'About', 'Services', 'Skills'].map((item) => (
+              {[
+                { label: t('nav.work').toUpperCase(), href: '#work' },
+                { label: t('nav.about').toUpperCase(), href: '#about' },
+                { label: t('nav.services').toUpperCase(), href: '#capabilities' },
+                { label: t('nav.skills').toUpperCase(), href: '#skills' },
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.href}
+                  href={item.href}
                   className="block text-sm text-dark-400 hover:text-accent transition-colors duration-300 py-1"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </div>
@@ -109,7 +116,7 @@ const Footer = () => {
           <div className="space-y-8">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-dark-500 mb-6">
-                Location
+                {t('footer.location')}
               </p>
               <p className="text-dark-300 leading-relaxed">
                 {portfolioData.designer.location}
@@ -118,15 +125,15 @@ const Footer = () => {
 
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-dark-500 mb-6">
-                Availability
+                {t('footer.availability')}
               </p>
               <div className="space-y-2 text-sm text-dark-400">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span>Open for projects</span>
+                  <span>{t('footer.openForProjects')}</span>
                 </div>
                 <p className="text-dark-500 text-xs">
-                  Response within 24 hours
+                  {t('footer.responseTime')}
                 </p>
               </div>
             </div>
@@ -142,11 +149,11 @@ const Footer = () => {
               className="h-8 w-auto"
             />
             <p className="text-sm text-dark-400">
-              &copy; {currentYear} {portfolioData.designer.name}. All rights reserved.
+              &copy; {currentYear} {portfolioData.designer.name}. {t('footer.allRightsReserved')}
             </p>
           </div>
           <p className="text-sm text-dark-400">
-            Designed with precision and purpose.
+            {t('footer.tagline')}
           </p>
         </div>
       </div>

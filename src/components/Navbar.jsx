@@ -3,7 +3,8 @@ import { useTranslation } from '../i18n/LanguageProvider';
 import { portfolioData } from '../data/portfolio';
 
 const Navbar = () => {
-  const { t, switchLanguage, lang } = useTranslation();
+  const { t, lang } = useTranslation();
+  // switchLanguage kept for future language toggle reinstate
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef(null);
@@ -91,6 +92,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
+          {/* TODO: reinstate language toggle
           <button
             onClick={switchLanguage}
             className={`hidden md:block text-sm uppercase tracking-widest px-4 py-2 border rounded-full transition-all duration-300 ${
@@ -101,6 +103,7 @@ const Navbar = () => {
           >
             {lang === 'ar' ? 'EN' : 'عربي'}
           </button>
+          */}
           <button
             onClick={() => scrollToSection('contact')}
             className="hidden md:block text-sm uppercase tracking-widest px-6 py-2 border border-dark-700 hover:border-white hover:bg-white hover:text-dark-950 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -164,6 +167,7 @@ const Navbar = () => {
             {item.label}
           </button>
         ))}
+        {/* TODO: reinstate language toggle
         <button
           onClick={switchLanguage}
           className={`text-sm uppercase tracking-widest px-8 py-3 border rounded-full transition-all duration-300 ${
@@ -180,6 +184,7 @@ const Navbar = () => {
         >
           {lang === 'ar' ? 'ENGLISH' : 'عربي'}
         </button>
+        */}
         <button
           onClick={() => scrollToSection('contact')}
           className={`mt-4 text-sm uppercase tracking-widest px-8 py-3 border transition-all duration-300 ${

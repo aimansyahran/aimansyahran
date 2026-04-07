@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { useTranslation } from '../i18n/LanguageProvider';
 
 const gradients = [
   'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
@@ -33,6 +34,7 @@ const logos = {
 };
 
 const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
+  const { t, lang } = useTranslation();
   const closeButtonRef = useRef(null);
   const modalRef = useRef(null);
   const galleryScrollRef = useRef(null);
@@ -271,7 +273,7 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                   animation: 'modal-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both',
                 }}
               >
-                <h3 className="text-xs uppercase tracking-[0.25em] text-dark-500">Overview</h3>
+                <h3 className="text-xs uppercase tracking-[0.25em] text-dark-500">{lang === 'en' ? 'Overview' : 'نظرة عامة'}</h3>
                 <p className="text-base text-dark-300 leading-relaxed">
                   {project.description}
                 </p>
@@ -282,7 +284,7 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                   animation: 'modal-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both',
                 }}
               >
-                <h3 className="text-xs uppercase tracking-[0.25em] text-dark-500 mb-4">Expertise</h3>
+                <h3 className="text-xs uppercase tracking-[0.25em] text-dark-500 mb-4">{lang === 'en' ? 'Expertise' : 'الخبرة'}</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
                     <span
