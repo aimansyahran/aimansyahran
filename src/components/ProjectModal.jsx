@@ -241,7 +241,7 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
           </div>
 
           {/* RIGHT: Details panel */}
-          <div className="lg:w-[35%] bg-dark-950 overflow-y-auto border-l border-dark-800/50">
+          <div className="lg:w-[35%] bg-dark-950 overflow-y-auto border-l border-dark-800/50 relative">
             <div className="p-8 md:p-10 lg:p-12 space-y-10 text-left">
               <div
                 style={{
@@ -309,38 +309,77 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className="h-px bg-dark-800" />
-
-              <div
-                className="flex items-center justify-between text-xs text-dark-600"
-                style={{
-                  animation: 'modal-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both',
-                }}
-              >
+          {/* Fixed bottom nav within right panel */}
+          <div className="absolute bottom-0 right-0 w-[35%] z-20">
+            <div className="p-6 bg-dark-950/98 backdrop-blur-xl border-t border-accent/30 shadow-lg">
+              <div className="flex items-center justify-between max-w-[1600px] mx-auto">
+                {/* Previous project */}
                 <button
                   onClick={() => prevProject && navigateTo(prevProject)}
-                  className={`flex items-center gap-2 transition-colors duration-300 group ${
-                    prevProject ? 'hover:text-dark-300' : 'opacity-30 cursor-default'
+                  className={`flex items-center gap-3 text-sm font-medium transition-all duration-300 group ${
+                    prevProject
+                      ? 'text-dark-100 hover:text-accent'
+                      : 'text-dark-600 opacity-30 cursor-default'
                   }`}
                   disabled={!prevProject}
+                  aria-label="Previous project"
                 >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M10 6H2M2 6L5 3M2 6L5 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="transition-transform duration-300 group-hover:-translate-x-1"
+                  >
+                    <path
+                      d="M16 12H4M4 12L10 6M4 12L10 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
-                  <span className="hover:underline">{prevProject ? prevProject.title : '—'}</span>
+                  <span className="max-w-[150px] truncate">{prevProject?.title || '—'}</span>
                 </button>
-                <span className="text-dark-800">/</span>
+
+                {/* Project counter */}
+                <div className="flex items-center gap-3 text-base font-mono">
+                  <span className="text-accent font-bold text-lg">
+                    {String(currentIndex + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-dark-600 text-xl">/</span>
+                  <span className="text-dark-300">{String(allProjects.length).padStart(2, '0')}</span>
+                </div>
+
+                {/* Next project */}
                 <button
                   onClick={() => nextProject && navigateTo(nextProject)}
-                  className={`flex items-center gap-2 transition-colors duration-300 group ${
-                    nextProject ? 'hover:text-dark-300' : 'opacity-30 cursor-default'
+                  className={`flex items-center gap-3 text-sm font-medium transition-all duration-300 ${
+                    nextProject
+                      ? 'text-dark-100 hover:text-accent'
+                      : 'opacity-30 cursor-default'
                   }`}
                   disabled={!nextProject}
+                  aria-label="Next project"
                 >
-                  <span className="hover:underline">{nextProject ? nextProject.title : '—'}</span>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                  <span className="max-w-[150px] truncate">{nextProject?.title || '—'}</span>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <path
+                      d="M8 12H20M20 12L14 6M20 12L14 18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>
