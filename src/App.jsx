@@ -23,6 +23,10 @@ function AppContent() {
     setSelectedProject(null);
   };
 
+  const handleNavigate = (targetProject) => {
+    setSelectedProject(targetProject);
+  };
+
   return (
     <>
       <ScrollProgress />
@@ -42,6 +46,7 @@ function AppContent() {
           project={selectedProject}
           allProjects={portfolioData.projects}
           onClose={handleCloseModal}
+          onNavigate={handleNavigate}
         />
       )}
     </>
