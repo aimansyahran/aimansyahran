@@ -84,7 +84,7 @@ const Hero = () => {
           className="mt-8 max-w-[50ch] text-balance text-base leading-relaxed text-white/60 sm:max-w-[60ch] sm:text-lg md:text-lg md:leading-[1.7]"
           variants={itemVariants}
         >
-          Aiman Syahran — Graphic Designer & Creative Director. Senior creative leading high-impact, large-scale projects—merging elevated design, premium 3D, and AI to craft distinctive, future-ready visuals.
+          Aiman Syahran — {t('hero.subtext')}
         </motion.p>
 
         {/* Animated Button Group */}
