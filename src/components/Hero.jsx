@@ -56,7 +56,7 @@ const Hero = () => {
       {/* Background Image */}
       <div
         className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat grayscale"
-        style={{ backgroundImage: 'url(/hero.jpg)' }}
+        style={{ backgroundImage: 'url(/links/IMG_5124.webp)' }}
         aria-hidden="true"
       />
 
