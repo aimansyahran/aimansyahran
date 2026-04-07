@@ -6,6 +6,22 @@ import { ServiceIcon } from './ServiceIcons';
 const Capabilities = () => {
   const { t } = useTranslation();
   const services = portfolioData.services;
+
+  // Map icon key → translation key suffix
+  const ICON_TO_TRANSLATION = {
+    brand: 'brandIdentity',
+    visual: 'visualDesign',
+    uiux: 'uiuxDesign',
+    direction: 'creativeDirection',
+    '3d': 'design3d',
+    ai: 'aiDesign',
+    systems: 'designSystems',
+    art: 'artDirection',
+    editorial: 'editorialDesign',
+    packaging: 'packagingDesign',
+    calligraphy: 'arabicCalligraphy',
+    motion: 'motionDesign',
+  };
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -76,10 +92,10 @@ const Capabilities = () => {
                   <ServiceIcon icon={service.icon} />
                 </div>
                 <h3 className="text-sm font-medium text-dark-100 mb-2">
-                  {t(`services.${service.icon}.title`)}
+                  {t(`services.${ICON_TO_TRANSLATION[service.icon] || service.icon}.title`)}
                 </h3>
                 <p className="text-xs text-dark-500 leading-relaxed">
-                  {t(`services.${service.icon}.desc`)}
+                  {t(`services.${ICON_TO_TRANSLATION[service.icon] || service.icon}.desc`)}
                 </p>
               </div>
             ))}
