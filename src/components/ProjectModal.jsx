@@ -43,11 +43,10 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
   const currentIndex = allProjects.findIndex(p => p.id === project.id);
   const gradient = gradients[currentIndex % gradients.length];
 
-  // Gallery items - blend images with gradient slide
+  // Gallery items - only show project images
   const gallery = project.gallery
-    ? [...project.gallery.map(url => ({ type: 'image', src: url })),
-       { type: 'gradient', gradient }]
-    : [{ type: 'gradient', gradient }];
+    ? project.gallery.map(url => ({ type: 'image', src: url }))
+    : [];
 
   const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
   const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
@@ -222,13 +221,6 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
               </div>
             )}
 
-            {/* Logo mark - centered */}
-            <div className="absolute inset-0 flex items-center justify-center z-[2] pointer-events-none">
-              <div className="px-5 py-3 border border-white/20 backdrop-blur-sm text-xl font-medium text-white/90 tracking-wider">
-                {logos[project.id] || project.title.substring(0, 2).toUpperCase()}
-              </div>
-            </div>
-
             {/* Project badge */}
             <div
               className="absolute top-20 left-6 md:left-8 px-5 py-2 bg-dark-950/80 backdrop-blur-sm border border-dark-700/50 text-xs uppercase tracking-[0.2em] text-accent"
@@ -250,12 +242,30 @@ const ProjectModal = ({ project, allProjects, onClose, onNavigate }) => {
 
           {/* RIGHT: Details panel */}
           <div className="lg:w-[35%] bg-dark-950 overflow-y-auto border-l border-dark-800/50">
-            <div className="p-8 md:p-10 lg:p-12 space-y-10">
+            <div className="p-8 md:p-10 lg:p-12 space-y-10 text-left">
               <div
                 style={{
                   animation: 'modal-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both',
                 }}
               >
+                {/* Logo mark */}
+                <div className="mb-6 flex items-start">
+                  {project.logo ? (
+                    <div className={`${project.logoWidth || 'w-[350px]'} h-40 flex items-center`}>
+                      <img
+                        src={project.logo}
+                        alt={`${project.title} logo`}
+                        className="max-w-full max-h-full object-contain"
+                        style={{ filter: 'brightness(0) invert(1)' }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="px-12 py-6 border border-white/20 backdrop-blur-sm text-5xl font-medium text-white/90 tracking-wider">
+                      {logos[project.id] || project.title.substring(0, 2).toUpperCase()}
+                    </div>
+                  )}
+                </div>
+
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-[0.95] tracking-tight">
                   {project.title}
                 </h2>

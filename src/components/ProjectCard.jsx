@@ -69,10 +69,10 @@ const ProjectCard = ({ project, index, onOpen }) => {
       </span>
 
       <div className="relative aspect-[4/3] md:aspect-[5/3] overflow-hidden bg-dark-900 ring-1 ring-dark-800/30 group-hover:ring-accent/20 transition-all duration-500 mt-4 md:mt-0">
-        {/* Gradient background — always visible */}
+        {/* Cover image — always visible */}
         <div
-          className="absolute inset-0 transition-opacity duration-700"
-          style={{ background: gradient }}
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+          style={{ backgroundImage: `url(${project.image})` }}
         />
 
         {/* Logo mark — centered on the card */}

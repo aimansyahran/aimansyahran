@@ -96,11 +96,12 @@ export const portfolioData = {
       category: "Destination Branding",
       year: "2024",
       description: "Brand identity and visual communications for one of Saudi Arabia's most ambitious megaprojects—developing a distinctive brand language that connects heritage with the future.",
-      image: "https://images.unsplash.com/photo-1597659841848-e0e3c831d129?w=1200&q=80",
+      image: "/projects/king-salman-gate/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1597659841848-e0e3c831d129?w=1200&q=80",
-        "https://images.unsplash.com/photo-1576169796344-b4e30b8b3d67?w=1200&q=80",
-        "https://images.unsplash.com/photo-1558618907-5186e013c8aa?w=1200&q=80"
+        "/projects/king-salman-gate/cover.jpg",
+        "/projects/king-salman-gate/gallery-1.jpg",
+        "/projects/king-salman-gate/gallery-2.jpg",
+        "/projects/king-salman-gate/gallery-3.jpg"
       ],
       tags: ["Branding", "Megaproject", "Heritage"]
     },
@@ -111,11 +112,11 @@ export const portfolioData = {
       category: "Cultural Branding",
       year: "2024",
       description: "Visual identity and creative direction for the giga-project transforming the birthplace of Saudi Arabia into a world-class cultural and heritage destination.",
-      image: "https://images.unsplash.com/photo-1558618907-5186e013c8aa?w=1200&q=80",
+      image: "/projects/diriyah-gate/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1558618907-5186e013c8aa?w=1200&q=80",
-        "https://images.unsplash.com/photo-1597659841848-e0e3c831d129?w=1200&q=80",
-        "https://images.unsplash.com/photo-1576169796344-b4e30b8b3d67?w=1200&q=80"
+        "/projects/diriyah-gate/gallery-1.jpg",
+        "/projects/diriyah-gate/gallery-2.jpg",
+        "/projects/diriyah-gate/gallery-3.jpg"
       ],
       tags: ["Cultural", "Heritage", "Giga-Project"]
     },
@@ -126,11 +127,11 @@ export const portfolioData = {
       category: "Megaproject Branding",
       year: "2023",
       description: "Design work for the future-forward megacity—crafting visual narratives that communicate ambition, innovation, and a new way of living.",
-      image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80",
+      image: "/projects/neom/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80",
-        "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
-        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=1200&q=80"
+        "/projects/neom/gallery-1.jpg",
+        "/projects/neom/gallery-2.jpg",
+        "/projects/neom/gallery-3.jpg"
       ],
       tags: ["Megaproject", "Future", "Innovation"]
     },
@@ -142,11 +143,11 @@ export const portfolioData = {
       category: "Corporate Branding",
       year: "2023",
       description: "Visual communications and brand collateral for Riyadh's premier financial district—positioning it as a hub for enterprise and investment.",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
+      image: "/projects/kafd/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80"
+        "/projects/kafd/gallery-1.jpg",
+        "/projects/kafd/gallery-2.jpg",
+        "/projects/kafd/gallery-3.jpg"
       ],
       tags: ["Corporate", "Finance", "Distinction"]
     },
@@ -156,11 +157,11 @@ export const portfolioData = {
       category: "Corporate Branding",
       year: "2023",
       description: "Brand communication and visual design for the diversified holding company—aligning multiple subsidiaries under a unified visual identity.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+      image: "/projects/riyadh-holding/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
-        "https://images.unsplash.com/photo-1553484771-047a44eee27b?w=1200&q=80",
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80"
+        "/projects/riyadh-holding/gallery-1.jpg",
+        "/projects/riyadh-holding/gallery-2.jpg",
+        "/projects/riyadh-holding/gallery-3.jpg"
       ],
       tags: ["Corporate", "Holding", "Identity"]
     },
@@ -170,11 +171,11 @@ export const portfolioData = {
       category: "Government Initiative",
       year: "2023",
       description: "Visual storytelling and brand communications for the city's development initiatives—showcasing Riyadh's rapid transformation to the world.",
-      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
+      image: "/projects/riyadh-development/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=1200&q=80",
-        "https://images.unsplash.com/photo-1569421640498-de45fdd187df?w=1200&q=80"
+        "/projects/riyadh-development/gallery-1.jpg",
+        "/projects/riyadh-development/gallery-2.jpg",
+        "/projects/riyadh-development/gallery-3.jpg"
       ],
       tags: ["Government", "Development", "Urban"]
     },
@@ -184,11 +185,11 @@ export const portfolioData = {
       category: "Events Branding",
       year: "2023",
       description: "Creative direction and promotional design for the months-long celebration of the capital—encompassing entertainment, culture, and community.",
-      image: "https://images.unsplash.com/photo-1492684223066-8134f55d6580?w=1200&q=80",
+      image: "/projects/riyadh-season/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1492684223066-8134f55d6580?w=1200&q=80",
-        "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=1200&q=80",
-        "https://images.unsplash.com/photo-1561070791-36c11767b26a?w=1200&q=80"
+        "/projects/riyadh-season/gallery-1.jpg",
+        "/projects/riyadh-season/gallery-2.jpg",
+        "/projects/riyadh-season/gallery-3.jpg"
       ],
       tags: ["Events", "Entertainment", "Culture"]
     },
@@ -198,11 +199,11 @@ export const portfolioData = {
       category: "Events Branding",
       year: "2022",
       description: "Visual campaigns and promotional design for Jeddah's annual season—blending coastal heritage, cultural pride, and modern entertainment.",
-      image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80",
+      image: "/projects/jeddah-season/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80",
-        "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=1200&q=80",
-        "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=1200&q=80"
+        "/projects/jeddah-season/gallery-1.jpg",
+        "/projects/jeddah-season/gallery-2.jpg",
+        "/projects/jeddah-season/gallery-3.jpg"
       ],
       tags: ["Events", "Entertainment", "Coastal"]
     },
@@ -212,11 +213,11 @@ export const portfolioData = {
       category: "Corporate Branding",
       year: "2022",
       description: "Brand identity and visual communications for Jeddah's development corporation—positioning the organization as a catalyst for urban transformation.",
-      image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&q=80",
+      image: "/projects/jedco/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&q=80",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1200&q=80"
+        "/projects/jedco/gallery-1.jpg",
+        "/projects/jedco/gallery-2.jpg",
+        "/projects/jedco/gallery-3.jpg"
       ],
       tags: ["Corporate", "Development", "Jeddah"]
     },
@@ -226,11 +227,11 @@ export const portfolioData = {
       category: "Brand Identity",
       year: "2022",
       description: "Visual identity and marketing collateral for the iconic dining and hospitality brand—refreshing brand perception across multiple touchpoints.",
-      image: "https://images.unsplash.com/photo-1555395267-8e0b457e6e5c?w=1200&q=80",
+      image: "/projects/americana/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1555395267-8e0b457e6e5c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1567521464027-f127ff31e7de?w=1200&q=80",
-        "https://images.unsplash.com/photo-1572449043416-55f4475b3e17?w=1200&q=80"
+        "/projects/americana/gallery-1.jpg",
+        "/projects/americana/gallery-2.jpg",
+        "/projects/americana/gallery-3.jpg"
       ],
       tags: ["Hospitality", "F&B", "Branding"]
     },
@@ -240,11 +241,11 @@ export const portfolioData = {
       category: "Brand Communication",
       year: "2023",
       description: "Creative direction and brand communications for the food-tech platform—developing engaging visual campaigns that connect with audiences.",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80",
+      image: "/projects/goody/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80",
-        "https://images.unsplash.com/photo-1555395267-8e0b457e6e5c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1567521464027-f127ff31e7de?w=1200&q=80"
+        "/projects/goody/gallery-1.jpg",
+        "/projects/goody/gallery-2.jpg",
+        "/projects/goody/gallery-3.jpg"
       ],
       tags: ["Food-Tech", "Digital", "Campaigns"]
     },
@@ -254,11 +255,11 @@ export const portfolioData = {
       category: "Corporate Branding",
       year: "2022",
       description: "Visual identity and brand positioning for the organization—developing a professional, modern brand language across digital and print materials.",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+      image: "/projects/nai/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1200&q=80"
+        "/projects/nai/gallery-1.jpg",
+        "/projects/nai/gallery-2.jpg",
+        "/projects/nai/gallery-3.jpg"
       ],
       tags: ["Corporate", "Identity", "Professional"]
     },
@@ -268,11 +269,11 @@ export const portfolioData = {
       category: "Brand Identity",
       year: "2023",
       description: "Brand development and visual design for RIYALI—creating a bold, contemporary identity that speaks to the Saudi audience with clarity and purpose.",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80",
+      image: "/projects/riyali/cover.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80",
-        "https://images.unsplash.com/photo-1561070791-36c11767b26a?w=1200&q=80",
-        "https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&q=80"
+        "/projects/riyali/gallery-1.jpg",
+        "/projects/riyali/gallery-2.jpg",
+        "/projects/riyali/gallery-3.jpg"
       ],
       tags: ["Branding", "Contemporary", "Saudi"]
     }
