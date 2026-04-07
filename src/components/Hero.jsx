@@ -55,7 +55,7 @@ const Hero = () => {
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat grayscale"
+        className="absolute inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/links/IMG_5124.webp)' }}
         aria-hidden="true"
       />
@@ -84,7 +84,7 @@ const Hero = () => {
           className="mt-8 max-w-[50ch] text-balance text-base leading-relaxed text-white/60 sm:max-w-[60ch] sm:text-lg md:text-lg md:leading-[1.7]"
           variants={itemVariants}
         >
-          {t('hero.subtext')}
+          Aiman Syahran — {t('hero.subtext')}
         </motion.p>
 
         {/* Animated Button Group */}
