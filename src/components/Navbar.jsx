@@ -4,7 +4,6 @@ import { portfolioData } from '../data/portfolio';
 
 const Navbar = () => {
   const { t, lang } = useTranslation();
-  // switchLanguage kept for future language toggle reinstate
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef(null);
@@ -92,18 +91,6 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          {/* TODO: reinstate language toggle
-          <button
-            onClick={switchLanguage}
-            className={`hidden md:block text-sm uppercase tracking-widest px-4 py-2 border rounded-full transition-all duration-300 ${
-              lang === 'ar'
-                ? 'border-accent/50 text-accent hover:ring-1 hover:ring-accent/30'
-                : 'border-dark-700 text-dark-400 hover:border-white hover:text-dark-950 hover:bg-white'
-            }`}
-          >
-            {lang === 'ar' ? 'EN' : 'عربي'}
-          </button>
-          */}
           <button
             onClick={() => scrollToSection('contact')}
             className="hidden md:block text-sm uppercase tracking-widest px-6 py-2 border border-dark-700 hover:border-white hover:bg-white hover:text-dark-950 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -167,31 +154,9 @@ const Navbar = () => {
             {item.label}
           </button>
         ))}
-        {/* TODO: reinstate language toggle
-        <button
-          onClick={switchLanguage}
-          className={`text-sm uppercase tracking-widest px-8 py-3 border rounded-full transition-all duration-300 ${
-            lang === 'ar'
-              ? 'border-accent/50 text-accent hover:ring-1 hover:ring-accent/30'
-              : 'border-dark-600 text-dark-300 hover:text-white hover:border-white'
-          }`}
-          style={{
-            opacity: mobileOpen ? 1 : 0,
-            transform: mobileOpen ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.4s ease-out, transform 0.4s ease-out',
-            transitionDelay: mobileOpen ? '340ms' : '0ms',
-          }}
-        >
-          {lang === 'ar' ? 'ENGLISH' : 'عربي'}
-        </button>
-        */}
         <button
           onClick={() => scrollToSection('contact')}
-          className={`mt-4 text-sm uppercase tracking-widest px-8 py-3 border transition-all duration-300 ${
-            lang === 'ar'
-              ? 'border-accent/50 text-accent hover:ring-1 hover:ring-accent/30'
-              : 'border-dark-600 text-dark-300 hover:text-white hover:border-white'
-          }`}
+          className="mt-4 text-sm uppercase tracking-widest px-8 py-3 border border-dark-600 text-dark-300 hover:text-white hover:border-white transition-all duration-300"
           style={{
             opacity: mobileOpen ? 1 : 0,
             transform: mobileOpen ? 'translateY(0)' : 'translateY(16px)',

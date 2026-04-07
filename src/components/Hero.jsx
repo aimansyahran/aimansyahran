@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n/LanguageProvider';
 
@@ -72,7 +72,7 @@ const Hero = () => {
       >
         {/* Animated Title — Playfair Display, forced 2-line layout */}
         <motion.h1
-          className="font-display text-[clamp(2.25rem,5.5vw,5rem)] font-semibold leading-[1.08] tracking-tight text-white"
+          className="font-display text-[clamp(2.25rem,5.5vw,5rem)] font-medium leading-[1.08] tracking-tight text-white"
           variants={itemVariants}
         >
           <span className="block">I Design Visuals</span>
